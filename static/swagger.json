@@ -1,0 +1,55 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "blah",
+        "version": "1.0.0",
+        "title": "MXK Kanto Pokedex",
+        "contact": {
+            "email": "doesnt_exist@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "components": {
+        "schemas": {
+            "id": {
+                "properties": {
+                    "int": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "name": {
+                "properties": {
+                    "string": {
+                        "type": "string"
+                    }
+                }
+            },
+            "types": {
+                "type": "array",
+                "properties": {
+                    "string": {
+                        "type": "string"
+                    }
+                }
+            },
+            "shape": {
+                "properties": {
+                    "string": {
+                        "type": "string"
+                    }
+                }
+            },
+            "url": {
+                "properties": {
+                    "string": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
