@@ -30,10 +30,8 @@
             },
             "types": {
                 "type": "array",
-                "properties": {
-                    "string": {
-                        "type": "string"
-                    }
+                "items": {
+                    "type": "string"
                 }
             },
             "shape": {
