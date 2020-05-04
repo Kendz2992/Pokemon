@@ -10,21 +10,37 @@
 # db is initialized with pokemon.
 # All endpoints are internal, feeding off populated db
 
-
-# from sqlalchemy import create_engine
-# from sqlalchemy.orm import scoped_session, sessionmaker
+# Old crud
 # from sqlalchemy.ext.declarative import declarative_base
 
-# engine = create_engine("sqlite:////MXK/pokemon_challenge.db", convert_unicode=True)
-# db_session = scoped_session(
-#     sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# from main import db
+# from models import Pokemon, SamplePokemon
+# from sample_data import STARTERS
+
+
+# def real_setup():
+# Initialize real data
+# for id in range(0,151):
+# Hit PokeAPi for pokemon with id
+# TODO
+# Make a poke dict
+# TODO
+# Create a Pokemon record from dict
+# db.session.add(Pokemon(**dict))
+# db.session.add(
+#     Pokemon(
+#         id=999,
+#         name="Xavier",
+#         types=["Human", "Male"],
+#         shape="bipedal",
+#         url="https://i_dont_exist.com",
+#     )
 # )
-# Base = declarative_base()
-# Base.query = db_session.query_property()
+# db.session.commit()
 
 
-# def init_db():
-#     from models.pokemon import Pokemon
-#     from .setup_db import init_data
-
-#     Base.metadata.create_all(bind=engine)
+# def sample_setup():
+#     # Initialize sample data
+#     for pokemon in STARTERS["data"]:
+#         db.session.add(SamplePokemon(id=pokemon["id"], name=pokemon["name"]))
+#     db.session.commit()
