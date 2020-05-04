@@ -2,7 +2,7 @@
 
 Pokedex Programming Challenge
 
-Using Flask, Python3, SQLAlchemy ORM and Alembic we would like you to create a simple table utilizing an API, The application should fulfill the basic requirements below. The source code must be placed in a public repo on GIthub.
+Using Flask, Python3, SQLAlchemy ORM and Alembic we would like you to create a simple table utilizing an API, The application should fulfill the basic requirements below. The source code must be placed in a public repo on Github.
 
 - Utilizing the Pokedex API at ​https://pokeapi.co/​ Create a table that displays the Kanto pokedex pokemon in order of ID by default
 - Allow Search queries to search for pokemon based on name, ie 'char' should result in Charmander, Charmeleon, and Charizard.
@@ -12,3 +12,15 @@ Using Flask, Python3, SQLAlchemy ORM and Alembic we would like you to create a s
 - Table has icon for each pokemon, use front default. 'Show' page should show the
 sprite as well.
 - Deploy a sample of the application to a free instance of AWS or Heroku
+
+
+# Using a virtual environment
+## Bash commands
+- `cd Pokedex`
+- `python3 -m venv venv/`
+- `source venv/bin/activate`
+Bash should now have `(venv)` prefix
+- `pip install -r requirements.txt`
+- `export FLASK_APP=Pokedex`
+- `flask run`
+You should be able to follow to the localhost url to view this project

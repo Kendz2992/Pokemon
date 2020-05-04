@@ -22,7 +22,7 @@ class Pokemon(Base):
 class SamplePokemon(Base):
     __tablename__ = "sample_pokemon"
     id = Column(Integer, primary_key=True)
-    name = Column(String(50), unique=True, nullable=False)
+    name = Column(String(50), nullable=False)
 
     def __repr__(self):
         return f"<Sample Pokemon #{self.id} - {self.name}>"
