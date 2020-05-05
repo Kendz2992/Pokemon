@@ -1,3 +1,5 @@
+import requests
+
 from models import Pokemon, SamplePokemon
 
 
@@ -11,21 +13,6 @@ class Config(object):
         "ck": "ck_%(table_name)s_%(constraint_name)s",
         "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
         "pk": "pk_%(table_name)s",
-    }
-
-    ### db sample data ##
-    STARTERS = {
-        "data": [
-            {"id": 1, "name": "Bulbasaur"},
-            {"id": 2, "name": "Bulbasaur2"},
-            {"id": 3, "name": "Bulbasaur3"},
-            {"id": 4, "name": "Charmander"},
-            {"id": 5, "name": "Charmander2"},
-            {"id": 6, "name": "Charmander3"},
-            {"id": 7, "name": "Squirtle"},
-            {"id": 8, "name": "Squirtle2"},
-            {"id": 9, "name": "Squirtle3"},
-        ]
     }
 
     # Initialize db with real Pokemon data
@@ -43,6 +30,22 @@ class Config(object):
 
     # Initialize db with sample Pokemon data
     def sample_data(db):
+
+        ### db sample data ##
+        STARTERS = {
+            "data": [
+                {"id": 1, "name": "Bulbasaur"},
+                {"id": 2, "name": "Bulbasaur2"},
+                {"id": 3, "name": "Bulbasaur3"},
+                {"id": 4, "name": "Charmander"},
+                {"id": 5, "name": "Charmander2"},
+                {"id": 6, "name": "Charmander3"},
+                {"id": 7, "name": "Squirtle"},
+                {"id": 8, "name": "Squirtle2"},
+                {"id": 9, "name": "Squirtle3"},
+            ]
+        }
+
         # Throw some samples in for test before switching over to Pokemon model
         for pokemon in STARTERS["data"]:
             db.session.add(SamplePokemon(id=pokemon["id"], name=pokemon["name"]))
@@ -57,3 +60,18 @@ class Config(object):
                 url="https://i_dont_exist.com",
             )
         )
+
+    # def fetch_products(app):
+    # """Grab product listings from BestBuy."""
+    # endpoint = "https://api.bestbuy.com/v1/products(customerReviewAverage>=4&customerReviewCount>100&longDescription=*)"
+    # params = {
+    #     'show': "customerReviewAverage,customerReviewCount,name,sku,image,description,manufacturer,longDescription,salePrice,sku",
+    #     "apiKey": app.config['BEST_BUY_API_KEY'],
+    #     "format": "json",
+    #     "pageSize": 6,
+    #     "totalPages": 1,
+    #     "sort": "customerReviewAverage.dsc"}
+    # headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+    # r = requests.get(endpoint, params=params, headers=headers)
+    # products = r.json()['products']
+    # return products
