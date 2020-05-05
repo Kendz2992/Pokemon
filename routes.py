@@ -1,27 +1,33 @@
-from flask_restplus import Resource
+from flask import Blueprint
 
-# from main import db
-from model import Pokemon, SamplePokemon
-
-
-class MainClass(Resource):
-    def get(self):
-        return {"status": "Got new data"}
-
-    def post(self):
-        return {"status": "Posted new data"}
+from models import Pokemon, SamplePokemon
 
 
-class getID(Resource):
-    def get(self, id):
-        return {"id endpoint works": id}
+test = Blueprint("test", __name__)
+pk = Blueprint("pokemon", __name__)
 
 
-class getName(Resource):
-    def get(self, name):
-        return {"name endpoint works": name}
+@test.route("/", methods=["GET", "POST"])
+def test():
+    if "GET":
+        return "Successful GET to endpoint"
+    else:
+        return "Successful POST to endpoint"
 
 
-class getType(Resource):
-    def get(self, types):
-        return {"type endpoint works": types}
+@pk.route("/id/<int:id>", methods=["GET"])
+def geId(id):
+    poke = SamplePokemon.query.get(id)
+    return {"Pokemon": poke, "id endpoint works": id}
+
+
+@pk.route("/type/<string:types>", methods=["GET"])
+def getType(types):
+    poke = SamplePokemon.query.filter_by(type=types).all()
+    return {"Pokemon": [poke], "type endpoint works": types}
+
+
+@pk.route("/name/<string:name>", methods=["GET"])
+def getName(name):
+    poke = SamplePokemon.query.filter_by(name=name).all()
+    return {"Pokemon": [poke], "name endpoint works": name}

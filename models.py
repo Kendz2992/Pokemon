@@ -1,9 +1,12 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
+# from app import db
+
 # from sqlalchemy_imageattach.entity import Image, image_attachment
 
 Base = declarative_base()
+# Base.metadata.create_all(bind=db.engine)
 
 # Holds the pokemon class
 class Pokemon(Base):
