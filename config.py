@@ -4,10 +4,16 @@ from models import Pokemon, SamplePokemon
 
 
 class Config(object):
-    # ...
+
+    # Flask
+    FLASK_APP = "__init__.py"
+    FLASK_DEBUG = 1
+
+    # SQL DB
     SQLALCHEMY_DATABASE_URI = "sqlite:///app.db"
+    SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    CONVENTION = {
+    SQL_CONVENTION = {
         "ix": "ix_%(column_0_label)s",
         "uq": "uq_%(table_name)s_%(column_0_name)s",
         "ck": "ck_%(table_name)s_%(constraint_name)s",
@@ -51,15 +57,15 @@ class Config(object):
             db.session.add(SamplePokemon(id=pokemon["id"], name=pokemon["name"]))
             print(pokemon["name"], "added to the database")
         # Check Pokemon model works
-        db.session.add(
-            Pokemon(
-                id=999,
-                name="Xavier",
-                types=["Human", "Male"],
-                shape="bipedal",
-                url="https://i_dont_exist.com",
-            )
-        )
+        # db.session.add(
+        #     Pokemon(
+        #         id=999,
+        #         name="Xavier",
+        #         types=["Human"],
+        #         shape="bipedal",
+        #         url="https://i_dont_exist.com",
+        #     )
+        # )
 
     # def fetch_products(app):
     # """Grab product listings from BestBuy."""

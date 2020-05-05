@@ -8,6 +8,12 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 # Base.metadata.create_all(bind=db.engine)
 
+# def sessionLoader():
+#     Base.metadata.bind = db.engine
+#     DBSession = sessionmaker(bind=db.engine)
+#     session = DBSession()
+#     return session
+
 # Holds the pokemon class
 class Pokemon(Base):
     __tablename__ = "pokemon"

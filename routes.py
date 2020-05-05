@@ -17,6 +17,16 @@ def test():
         return "Successful POST to endpoint"
 
 
+# Example session connect and usage in endpoint
+# session = sessionLoader()
+# newEntity = Entity(name = 'John')
+# session.add(newEntity)
+# session.commit()
+# so I could do this
+# def getId(id, ds = sessionLoader())
+# ds.query(SamplePokemon).get(id)
+
+
 @poke_bp.route("/id/<int:id>", methods=["GET"])
 def geId(id):
     poke = db.session.query(SamplePokemon).get(id)

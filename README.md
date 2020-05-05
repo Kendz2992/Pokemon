@@ -15,12 +15,14 @@ sprite as well.
 
 
 # Using a virtual environment
+- Change to desired directory
 ## Bash commands
-- `cd Pokedex`
+- `git clone ####`
+- `cd Pokemon`
 - `python3 -m venv venv/`
 - `source venv/bin/activate`
 Bash should now have `(venv)` prefix
 - `pip install -r requirements.txt`
-- `export FLASK_APP=Pokedex`
+- `export FLASK_APP=Pokemon`
 - `flask run`
 You should be able to follow to the localhost url to view this project
