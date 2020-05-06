@@ -10,14 +10,16 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-import models
+# import routes
 from routes import poke_bp, test_bp
+import helpers
 
-models.Base.metadata.create_all(bind=db.engine)
+db.create_all()
+
 # Create sample data
-Config.sample_data(db=db)
+helpers.sample_data(db)
 # Create actual data from PokeAPI
-# Config.real_data(db=db)
+# helpers.real_data(db)
 
 
 @app.route("/")
